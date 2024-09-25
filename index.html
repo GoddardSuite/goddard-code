@@ -1,1 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goddard Code</title>
 
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header class="w-100 d-flex justify-content-between bg-dark align-items-center p-2">
+        <h1 class="text-white">Goddard Code</h1>
+        <nav><button id="run" class="btn btn-success">Run</button></nav>
+    </header>
+    <textarea class="w-100" id="ide" style="font-family: monospace;"></textarea>
+    <div id="result"></div>
+
+    <select class="form-select" aria-label="Default select example">
+        <option selected>Language</option>
+        <option value="1">Assembly</option>
+        <option value="1">BASIC</option>
+        <option value="4">Brainf**k</option>
+        <option value="1">C</option>
+        <option value="1">C--</option>
+        <option value="3">C++</option>
+        <option value="1">C#</option>
+        <option value="1">Cython</option>
+        <option value="2">Dreamberd (maybe?)</option>
+        <option value="1">Fortran</option>
+        <option value="1">Gleam</option>
+        <option value="1">Go</option>
+        <option value="1">Go!</option>
+        <option value="2">Java</option>
+        <option value="5">JavaScript</option>
+        <option value="2">Machine code</option>
+        <option value="1">Python</option>
+        <option value="2">Ruby</option>
+        <option value="2">Rust</option>
+        <option value="2">SQL</option>
+        <option value="2">Swift</option>
+        <option value="2">TypeScript</option>
+        <option value="2">Visual Basic</option>
+      </select>
+
+    <script>
+        document.getElementById('run').addEventListener('click', () => {
+            document.getElementById('result').textContent = eval(document.getElementById('ide').value);
+        });
+    </script>
+</body>
+</html>
