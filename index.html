@@ -120,6 +120,19 @@
     <div class="w-100 bg-dark">hello</div>
 
     <script>
+        function lineNumbers() {
+            document.querySelector('.line-numbers').textContent = "";
+            
+            for (let i = 1; i <= this.scrollHeight / 19.5; i++) {
+                const num = document.createElement('p');
+                num.textContent = i;
+                num.style.marginBottom = '0px';
+                document.querySelector('.line-numbers').appendChild(num);
+            }
+        }
+
+        lineNumbers();
+        
         document.getElementById('run').addEventListener('click', () => {
             // run!
         });
@@ -130,14 +143,7 @@
             this.style.height = this.scrollHeight + 'px';
 
             // re-does line numbers
-            document.querySelector('.line-numbers').textContent = "";
-            
-            for (let i = 1; i <= this.scrollHeight / 19.5; i++) {
-                const num = document.createElement('p');
-                num.textContent = i;
-                num.style.marginBottom = '0px';
-                document.querySelector('.line-numbers').appendChild(num);
-            }
+            lineNumbers();
         }, false);
     </script>
 </body>
