@@ -1,150 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Goddard Code</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goddard Code</title>
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-    <style>
-        .line-numbers > * {
-            display: block;
-        }
+  <link href=" https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/css/ace.min.css " rel="stylesheet">
+  <script src=" https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-noconflict/mode-plain_text.min.js "></script>
 
-        .code {
-            overflow: hidden !important;
-            padding-left: 40px;
-            display: block;
-            font-family: monospace;
-            resize:none;
-            margin-left: -15px;
-        }
-    </style>
+  <style>
+    .code {
+      overflow: hidden !important;
+      padding-left: 40px;
+      display: block;
+      font-family: monospace;
+      resize: none;
+      margin-left: -16px;
+    }
+
+    .line-numbers {
+      line-height: 1.5;
+    }
+  </style>
 </head>
+
 <body>
-    <header class="w-100 d-flex justify-content-between bg-dark align-items-center p-2">
-        <div class="h-100 d-flex align-items-center">
-            <h1 class="text-white d-inline me-3 my-0 py-0">Goddard Code</h1>
-            <div class="dropdown d-inline">
-                <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                File
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-            <div class="dropdown d-inline">
-                <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Edit
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-            <div class="dropdown d-inline">
-                <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                View
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-            <div class="dropdown d-inline">
-                <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Window
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-            <div class="dropdown d-inline">
-                <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Help
-                </button>
-                <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
-        </div>
-        <nav><button id="run" class="btn btn-success">Run</button></nav>
-    </header>
-    <div class="d-flex h-100">
-        <div class="nav-wrapper p-1 bg-dark">
-            <nav>
-                <input placeholder="Project name">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Language</option>
-                    <option value="1">Assembly</option>
-                    <option value="1">BASIC</option>
-                    <option value="4">Brainf**k</option>
-                    <option value="1">C</option>
-                    <option value="1">C--</option>
-                    <option value="3">C++</option>
-                    <option value="1">C#</option>
-                    <option value="1">Cython</option>
-                    <option value="2">Dreamberd (maybe?)</option>
-                    <option value="1">Fortran</option>
-                    <option value="1">Gleam</option>
-                    <option value="1">Go</option>
-                    <option value="1">Go!</option>
-                    <option value="2">Java</option>
-                    <option value="5">JavaScript</option>
-                    <option value="2">Machine code</option>
-                    <option value="1">Python</option>
-                    <option value="2">Ruby</option>
-                    <option value="2">Rust</option>
-                    <option value="2">SQL</option>
-                    <option value="2">Swift</option>
-                    <option value="2">TypeScript</option>
-                    <option value="2">Visual Basic</option>
-                </select>
-            </nav>
-        </div>
-        <div class="d-flex w-100" style="height: calc(100vh - 72px) !important; overflow-y:scroll;">
-            <div class="line-numbers" style="margin-top: 2.5px;transform:translateX(20px)"></div>
-                <textarea rows="1" class="w-100 code"></textarea>
-        </div>
+  <header class="w-100 d-flex justify-content-between bg-dark align-items-center p-2">
+    <div class="h-100 d-flex align-items-center">
+      <h1 class="text-white d-inline me-3 my-0 py-0">Goddard Code</h1>
+      <div class="dropdown d-inline">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          File
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown d-inline">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Edit
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown d-inline">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          View
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="dropdown d-inline">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Help
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/contact">Contact us</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="w-100 bg-dark">hello</div>
+    <nav><button id="run" class="btn btn-success">Run</button></nav>
+  </header>
+  <div class="d-flex h-100">
+    <div class="nav-wrapper p-1 bg-dark">
+      <nav>
+        <input placeholder="Project name">
+        <select class="form-select" aria-label="Default select example">
+          <option selected>Language</option>
+          <option value="1">Assembly</option>
+          <option value="1">BASIC</option>
+          <option value="4">Brainf**k</option>
+          <option value="1">C</option>
+          <option value="1">C--</option>
+          <option value="3">C++</option>
+          <option value="1">C#</option>
+          <option value="1">Cython</option>
+          <option value="2">Dreamberd (maybe?)</option>
+          <option value="1">Fortran</option>
+          <option value="1">Gleam</option>
+          <option value="1">Go</option>
+          <option value="1">Go!</option>
+          <option value="2">Java</option>
+          <option value="5">JavaScript</option>
+          <option value="2">Machine code</option>
+          <option value="1">Python</option>
+          <option value="2">Ruby</option>
+          <option value="2">Rust</option>
+          <option value="2">SQL</option>
+          <option value="2">Swift</option>
+          <option value="2">TypeScript</option>
+          <option value="2">Visual Basic</option>
+        </select>
+      </nav>
+    </div>
+    <div class="d-flex w-100" style="height: calc(100vh - 72px) !important; overflow-y:scroll;">
+      <div class="line-numbers" style="margin-top: 2.5px;transform:translateX(10px)"></div>
+      <textarea rows="1" class="w-100 code"></textarea>
+    </div>
+  </div>
+  <div class="w-100 bg-dark">hello</div>
 
-    <script>
-        function lineNumbers() {
-            document.querySelector('.line-numbers').textContent = "";
-            
-            for (let i = 1; i <= document.querySelector(".code").scrollHeight / 19.47; i++) {
-                const num = document.createElement('p');
-                num.textContent = i;
-                num.style.marginBottom = '0px';
-                document.querySelector('.line-numbers').appendChild(num);
-            }
-        }
+  <script>
+    const textarea = document.querySelector(".code");
+    const lineNumbers = document.querySelector('.line-numbers');
 
-        lineNumbers();
-        
-        document.getElementById('run').addEventListener('click', () => {
-            // run!
-        });
+    function getVisibleLineCount() {
+      const lines = textarea.value.split('\n');
+      const lineHeight = parseInt(window.getComputedStyle(textarea).lineHeight);
+      const maxWidth = textarea.clientWidth - 40; // Adjust for padding
 
-        document.querySelector(".code").addEventListener('input', function () {
-            // sets the textarea height to fit the content
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
+      let visibleLines = 0;
 
-            // re-does line numbers
-            lineNumbers();
-        }, false);
-    </script>
+      for (const line of lines) {
+        // Measure the width of the line using a temporary canvas
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+        context.font = window.getComputedStyle(textarea).font; // Get the font of the textarea
+
+        const lineWidth = context.measureText(line).width;
+        const wrappedLines = Math.ceil(lineWidth / maxWidth);
+        visibleLines += wrappedLines || 1; // At least 1 line if line is not empty
+      }
+
+      return visibleLines;
+    }
+
+    function generateLineNumbers() {
+      const numberOfLines = getVisibleLineCount();
+      lineNumbers.innerHTML = Array.from({ length: numberOfLines }, (_, i) => i + 1).join('<br>');
+    }
+
+    generateLineNumbers();
+
+    document.getElementById('run').addEventListener('click', () => {
+      // run!
+    });
+
+    textarea.addEventListener('input', function () {
+      // Set the textarea height to fit the content
+      this.style.height = 'auto';
+      this.style.height = this.scrollHeight + 'px';
+
+      // Redraw line numbers
+      generateLineNumbers();
+    }, false);
+  </script>
+
 </body>
+
 </html>
