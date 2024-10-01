@@ -132,7 +132,7 @@
             // re-does line numbers
             document.querySelector('.line-numbers').textContent = "";
             
-            for (let i = 1; i < this.scrollHeight / 19; i++) {
+            for (let i = 1; i <= this.scrollHeight / 19.2; i++) {
                 const num = document.createElement('p');
                 num.textContent = i;
                 num.style.marginBottom = '0px';
