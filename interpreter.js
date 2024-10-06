@@ -1,4 +1,4 @@
 function interpret(){
-  code=str(document.querySelector(".ace_text-input").innertext);
+  code=string(document.querySelector(".ace_text-input").innertext);
   console.log(code);
 }
