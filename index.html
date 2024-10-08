@@ -35,7 +35,7 @@
           File
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">New project</a></li>
+          <li><button class="dropdown-item new-project">New project</button></li>
           <li><a class="dropdown-item" href="#">New file</a></li>
           <hr>
           <li><a class="dropdown-item" href="#">Upload file</a></li>
@@ -200,7 +200,7 @@
       document.querySelector('.no-project').classList.add('d-none');
     }
 
-    document.querySelector('.new-project').addEventListener('click', createProject);
+    document.querySelectorAll('.new-project').forEach(btn => btn.addEventListener('click', createProject));
   </script>
 </body>
 
