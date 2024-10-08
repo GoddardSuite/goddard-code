@@ -97,7 +97,7 @@
   </header>
   <div class="d-flex h-100">
     <div class="nav-wrapper p-1 bg-dark" style="width: 400px">
-      <nav>
+      <nav class="left-sidebar">
         <div class="d-flex justify-content-between">
           <h5 class="project-name text-white"><small class=text-secondary>No project selected</small></h5>
           <div>
@@ -127,32 +127,7 @@
             </button>
           </div>
         </div>
-        <select class="form-select d-none" aria-label="Default select example">
-          <option selected>Language</option>
-          <option value="1">Assembly</option>
-          <option value="1">BASIC</option>
-          <option value="4">Brainf**k</option>
-          <option value="1">C</option>
-          <option value="1">C--</option>
-          <option value="3">C++</option>
-          <option value="1">C#</option>
-          <option value="1">Cython</option>
-          <option value="2">Dreamberd (maybe?)</option>
-          <option value="1">Fortran</option>
-          <option value="1">Gleam</option>
-          <option value="1">Go</option>
-          <option value="1">Go!</option>
-          <option value="2">Java</option>
-          <option value="5">JavaScript</option>
-          <option value="2">Machine code</option>
-          <option value="1">Python</option>
-          <option value="2">Ruby</option>
-          <option value="2">Rust</option>
-          <option value="2">SQL</option>
-          <option value="2">Swift</option>
-          <option value="2">TypeScript</option>
-          <option value="2">Visual Basic</option>
-        </select>
+
       </nav>
     </div>
     <div class="d-flex w-100" style="height: calc(100vh - 60px) !important; overflow-y:auto;">
@@ -196,6 +171,8 @@
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
     const modal = new bootstrap.Modal(document.querySelector('.modal'));
 
+    const leftSidebar = document.querySelector('.left-sidebar');
+
     async function createProject() {
       modal.show();
       await new Promise(resolve => document.querySelector(".new-project-confirm").addEventListener("click", resolve));
@@ -205,6 +182,14 @@
       document.querySelector('.no-project').classList.add('d-none');
     }
 
+    function createFile() {
+      const input_group = document.createElement('div');
+      input_group.classList.add('input-group');
+      input_group.innerHTML = '<div class="input-group mb-3"><button class="input-group-text">+</button><input type="text" class="form-control" aria-label="File name"><select class="form-select" aria-label="Language selection"><option value="0" selected>.js</option><option value="1">.py</option><option value="2">.sql</option></select></div>';
+      leftSidebar.appendChild(input_group);
+    }
+
+    document.querySelector('.new-file').addEventListener('click', createFile);
     document.querySelectorAll('.new-project').forEach(btn => btn.addEventListener('click', createProject));
   </script>
 </body>
