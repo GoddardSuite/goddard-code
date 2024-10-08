@@ -1,7 +1,8 @@
 function interpret(){
-  var code = String(document.getElementsByClassName('ace_text-input')[0].innerText); //gets code
+  var code = String(editor.getValue()); //gets code
   throw code;
-  var lexer = function(line){
+  var lines=code.split("\n") //declares separate line
+  var lexer = function(line){//defines lexer function
     var tokens=[];
     //checking each token (character) and classifying
     var isOperator = function (c) { return /[+\-*\/\^%=(),]/.test(c); },
@@ -45,6 +46,10 @@ function interpret(){
 
     return tokens;
   }
+    for line in lines{
+      
+    }
+    
     return tokens;
   };
 };
