@@ -205,7 +205,7 @@
         input_group.innerHTML = '<div class="input-group mb-3"><input placeholder="File name" type="text" class="form-control file-name-input" aria-label="File name"><select style="width: 10px !important;" class="form-select" aria-label="Language selection"><option value="0" selected>.js</option><option value="1">.py</option><option value="2">.sql</option></select><button class="input-group-text new-file-confirm">+</button></div>';
         leftSidebar.appendChild(input_group);
         document.querySelector('.file-name-input').focus();
-        await new Promise(resolve => document.querySelector('.new-file-confirm');
+        await new Promise(resolve => document.querySelector('.new-file-confirm').addEventListener('click', resolve));
         const fileName = document.querySelector('.file-name-input').value;
         input_group.remove();
       }
