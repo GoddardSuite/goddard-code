@@ -36,12 +36,11 @@
         </button>
         <ul class="dropdown-menu">
           <li><button class="dropdown-item new-project">New project</button></li>
-          <li><button class="dropdown-item new-file">New file</button></li>
-          <li><button class="dropdown-item new-folder">New folder</button></li>
+          <li><button class="dropdown-item new-file disabled">New file</button></li>
+          <li><button class="dropdown-item new-folder disabled">New folder</button></li>
           <hr>
-          <li><button class="dropdown-item upload-file">Upload file</button></li>
-          <hr>
-          <li><button class="dropdown-item disabled">Open saved project</button>
+          <li><button class="dropdown-item upload-file disabled">Upload file</button></li>
+          <li><button class="dropdown-item disabled">Upload project</button>
             <hr>
           <li><button class="dropdown-item disabled">Save</button></li>
           <li><button class="dropdown-item disabled">Enable autosave</button></li>
@@ -106,7 +105,7 @@
         <div class="d-flex justify-content-between">
           <h5 class="project-name text-white"><small class=text-secondary>No project selected</small></h5>
           <div>
-            <button class="icon-btn" data-bs-toggle="tooltip" data-bs-title="Upload file">
+            <button class="icon-btn upload-file disabled" data-bs-toggle="tooltip" data-bs-title="Upload file">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-upload"
                 viewBox="0 0 16 16">
                 <path
@@ -115,7 +114,7 @@
                   d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708z" />
               </svg>
             </button>
-            <button class="icon-btn new-file" data-bs-toggle="tooltip" data-bs-title="New file">
+            <button class="icon-btn new-file disabled" data-bs-toggle="tooltip" data-bs-title="New file">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white"
                 class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
                 <path
@@ -124,7 +123,7 @@
                   d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
               </svg>
             </button>
-            <button class="icon-btn" data-bs-toggle="tooltip" data-bs-title="New folder">
+            <button class="icon-btn new-folder disabled" data-bs-toggle="tooltip" data-bs-title="New folder">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-folder-plus"
                 viewBox="0 0 16 16">
                 <path
@@ -188,6 +187,7 @@
       modal.hide();
       document.getElementById('editor').classList.remove('d-none');
       document.querySelector('.no-project').classList.add('d-none');
+      document.querySelectorAll('.new-file').forEach(btn => btn.classList.remove('disabled'));
     }
 
     function createFile() {
