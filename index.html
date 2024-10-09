@@ -199,6 +199,7 @@
 
     async function createProject() {
       modal.show();
+      document.querySelector('.file-name-input').focus();
       await new Promise(resolve => document.querySelector(".new-project-confirm").addEventListener("click", resolve));
       document.querySelector('.project-name').textContent = document.querySelector('.project-name-input').value
       modal.hide();
@@ -221,7 +222,7 @@
         input_group.remove();
 
         const file = document.createElement('button');
-        file.classList.add('.file');
+        file.classList.add('file');
         file.textContent = fileName + fileType;
         leftSidebar.appendChild(file);
       }
