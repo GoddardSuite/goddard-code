@@ -205,7 +205,8 @@
     document.querySelectorAll('.new-project').forEach(btn => btn.addEventListener('click', createProject));
 
     // keyboard shortcuts
-    hotkeys('ctrl+n', createProject);
+    hotkeys('ctrl+alt+n', createFile);
+    hotkeys('ctrl+shift+alt+n', createProject);
   </script>
 </body>
 
