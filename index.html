@@ -232,7 +232,7 @@
         input_group.remove();
         document.querySelectorAll('.file').forEach(file => file.classList.remove('selected'));
         const file = document.createElement('button');
-        file.classList.add('file', 'selected');
+        file.classList.add('file', 'selected', 'w-100', 'text-start');
         file.textContent = fileName + fileType;
         leftSidebar.appendChild(file);
         document.getElementById('editor').classList.remove('d-none');
