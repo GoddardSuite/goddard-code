@@ -50,6 +50,7 @@ function interpret() {
   };
   for (var line in lines) {
       window.alert(line);
+      break;
     }
   
 };
