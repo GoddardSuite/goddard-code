@@ -51,6 +51,7 @@ function interpret() {
   };
   for (var line in lines) {
     window.alert(line);
+    window.alert(lexer(line));
     }
   
 };
