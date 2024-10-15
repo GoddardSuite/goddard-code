@@ -192,7 +192,13 @@
   </div>
 
 
-  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-noconflict/ace.js" type="text/javascript"
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/ace.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/mode-python.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/mode-javascript.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ace-builds@1.36.2/src-min-noconflict/mode-sql.js" type="text/javascript"
     charset="utf-8"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/hotkeys-js@3.7.3/dist/hotkeys.min.js"></script>
@@ -207,6 +213,10 @@
     const leftSidebar = document.querySelector('.left-sidebar');
 
     var projectSelected = false;
+
+    const jsMode = ace.require("ace/mode/javascript").Mode;
+    const pyMode = ace.require("ace/mode/python").Mode;
+    const sqlMode = ace.require("ace/mode/sql").Mode;
 
     async function createProject() {
       modal.show();
@@ -249,13 +259,13 @@
         
         switch(fileType) {
           case ".js":
-            editor.session.setMode("ace/mode/javascript");
+            editor.session.setMode(new jsMode());
             break;
           case ".sql":
-            editor.session.setMode("ace/mode/sql");
+            editor.session.setMode(new sqlMode());
             break;
           case ".py":
-            editor.session.setMode("ace/mode/python");
+            editor.session.setMode(new pyMode());
             break;
           default:
             alert("nooo");
