@@ -1,6 +1,7 @@
 function interpret() {
   var code = String(editor.getValue()); //gets code
-  const lines[] = code.split("\n") //declares separate line
+  const lines=[];
+  lines[] = code.split("\n") //declares separate line
   
   var lexer = function (c) {//defines lexer function
     var tokens = [];
