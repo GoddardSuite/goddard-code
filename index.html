@@ -278,6 +278,7 @@
     hotkeys('ctrl+shift+alt+n', createProject);
 
     hotkeys('ctrl+shift+j', () => {
+      document.querySelector('.empty-project').classList.add('d-none');
       editor.setTheme("ace/theme/twilight");
       document.getElementById('editor').classList.remove('d-none');
       editor.session.setMode(new jsMode());
