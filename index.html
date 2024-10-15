@@ -235,6 +235,10 @@
         input_group.remove();
         document.querySelectorAll('.file').forEach(file => file.classList.remove('selected'));
         const file = document.createElement('button');
+        file.addEventListener('click', event => {
+          document.querySelectorAll('.selected').forEach(element => element.classList.remove('selected'));
+          event.target.classList.add('selected');
+        });
         file.classList.add('file', 'selected', 'w-100', 'text-start');
         file.textContent = fileName + fileType;
         leftSidebar.appendChild(file);
