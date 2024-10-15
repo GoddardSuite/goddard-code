@@ -52,7 +52,7 @@ function interpret() {
   };
   for (item in lines) {
     let line = lines[item];
-    lexline= lexer(line);
+    let lexline= lexer(line);
     window.log(lexline);
     }
   
