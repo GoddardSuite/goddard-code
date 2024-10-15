@@ -278,7 +278,18 @@
     hotkeys('ctrl+shift+alt+n', createProject);
 
     hotkeys('ctrl+shift+j', () => {
+      document.querySelector('.project-name').textContent = "Test project";
       document.querySelector('.no-project').classList.add('d-none');
+      document.querySelectorAll('.new-file').forEach(btn => btn.classList.remove('disabled'));
+      projectSelected = true;
+      const file = document.createElement('button');
+      file.addEventListener('click', event => {
+        document.querySelectorAll('.selected').forEach(element => element.classList.remove('selected'));
+        event.target.classList.add('selected');
+      });
+      file.classList.add('file', 'selected', 'w-100', 'text-start');
+      file.textContent = "test.js";
+      leftSidebar.appendChild(file);
       editor.setTheme("ace/theme/twilight");
       document.getElementById('editor').classList.remove('d-none');
       editor.session.setMode(new jsMode());
