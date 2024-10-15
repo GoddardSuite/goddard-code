@@ -1,8 +1,8 @@
 function interpret() {
   var code = String(editor.getValue()); //gets code
-  var lines[] = code.split("\n") //declares separate line
+  const lines[] = code.split("\n") //declares separate line
   
-  var lexer = function (line) {//defines lexer function
+  var lexer = function (c) {//defines lexer function
     var tokens = [];
     //checking each token (character) and classifying
     var isOperator = function (c) { return /[+\-*\/\^%=(),]/.test(c); },
@@ -49,8 +49,9 @@ function interpret() {
 
     return tokens;
   };
-  for (line in lines) {
-    window.alert(line);
+  for (item in lines) {
+    let line = lines[item];
+    window.alert(line)
     
     }
   
