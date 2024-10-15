@@ -1,6 +1,6 @@
 function interpret() {
   var code = String(editor.getValue()); //gets code
-  var lines = code.split("\n") //declares separate line
+  var lines[] = code.split("\n") //declares separate line
   
   var lexer = function (line) {//defines lexer function
     var tokens = [];
@@ -49,9 +49,9 @@ function interpret() {
 
     return tokens;
   };
-  for (var line in lines) {
+  for (line in lines) {
     window.alert(line);
-    window.alert(lexer(line));
+    
     }
   
 };
