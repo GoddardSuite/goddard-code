@@ -1,6 +1,6 @@
 function interpret() {
-  var code = editor.getValue(); //gets code
-  var lines = code.split("\n") //declares separate line
+  var code = string(editor.getValue()); //gets code
+  var lines = code.split("\r"); //declares separate line
   var lexer = function (line) {//defines lexer function
     var tokens = [];
     //checking each token (character) and classifying
