@@ -52,7 +52,6 @@ function interpret() {
   };
   for (item in lines) {
     let line = lines[item];
-    window.alert(line)
     
     }
   
